@@ -19,6 +19,23 @@ For example I have `~/bin/` in my path so:
 ln -s $(pwd)/screenrecord.sh ~/bin/screenrecord
 ```
 
+## Usage
+To start recording use:
+```
+screenrecord -gr
+```
+You can also specify a filename:
+```
+screenrecord -gr filename
+```
+Which would save as `/tmp/filename.gif`
+
+To stop the recording from anywhere run:
+```
+screenrecord -gs
+```
+Exiting the original command with Ctrl + c will also work.
+
 ## Todo
 - [ ] Allow for setting a custom directory to save to.
 - [ ] Allow for webm recording for higher FPS and Sound.
