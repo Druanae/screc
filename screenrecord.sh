@@ -19,10 +19,15 @@ function screenrecord() {
         echo "Pidfile exists, exiting..."
         exit 1 
     fi 
-    TMP_AVI=$(mktemp /tmp/outXXXXXXXXXX.avi)
-    TMP_PALETTE=$(mktemp /tmp/outXXXXXXXXXX.png)
-    TMP_GIF=$(mktemp /tmp/outXXXXXXXXXX.gif)
-    export LAST_GIF=$TMP_GIF
+        TMP_AVI=$(mktemp /tmp/outXXXXXXXXXX.avi)
+        TMP_PALETTE=$(mktemp /tmp/outXXXXXXXXXX.png)
+    if [ "$2" == "" ]; then
+        TMP_GIF=$(mktemp /tmp/outXXXXXXXXXX.gif)
+        export LAST_GIF=$TMP_GIF
+    else
+        TMP_GIF=/tmp/${2}.gif
+        export LAST_GIF=$TMP_GIF
+    fi
     function cleanup() {
         rm /tmp/screenrecord.pid
         rm "$TMP_AVI"
@@ -55,7 +60,7 @@ function screenrecord() {
 }
 
 if [ "${1}" = "-gr" ]; then
-    screenrecord rec
+    screenrecord rec ${2}
     exit 0
 fi
 
@@ -65,7 +70,7 @@ if [ "${1}" = "-gs" ]; then
 fi
 
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ] || [ "${1}" = "" ]; then
-    echo "usage: ${0} [-h | -gr | -gs]"
+    echo "usage: ${0} [-h | -gr | -gs] FILE..."
     echo ""
     echo "   -gr        starts the GIF recording"
     echo "   -gs        stops the GIF recording"

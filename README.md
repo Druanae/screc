@@ -22,4 +22,4 @@ ln -s $(pwd)/screenrecord.sh ~/bin/screenrecord
 ## Todo
 - [ ] Allow for setting a custom directory to save to.
 - [ ] Allow for webm recording for higher FPS and Sound.
-- [ ] Allow for custom name formatting.
+- [x] Allow for custom name formatting.
