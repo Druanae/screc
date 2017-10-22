@@ -9,8 +9,14 @@ When recording is completed it will put the recorded GIF into /tmp
 
 ## Installation
 Clone this repository:
+```bash
+git clone git@owo.codes:druanae/FFMPEG-Screenrecord.git
+cd FFMPEG-Screenrecord
 ```
-git clone
+Symlink the script to your $PATH directory.
+For example I have `~/bin/` in my path so:
+```bash
+ln -s $(pwd)/screenrecord.sh ~/bin/screenrecord
 ```
 
 ## Todo
