@@ -8,7 +8,6 @@ function screenrecord() {
         fi
         echo "Stopping gif recorder..."
         kill -INT $(cat /tmp/screenrecord.pid)
-        rm /tmp/screenrecord.pid
         exit 0
     elif [ "$1" == "clean" ]; then
         rm /tmp/screenrecord.pid
@@ -43,6 +42,9 @@ function screenrecord() {
     trap cleanup EXIT
     trap on_sigint SIGINT
 
+    if [ -f /tmp/screenrecord.pid ]; then
+        rm /tmp/screenrecord.pid
+    fi
     touch /tmp/screenrecord.pid
     read -r X Y W H G ID < <(slop -f "%x %y %w %h %g %i" -q)
     if [ -z "$X" ]; then
