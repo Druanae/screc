@@ -8,6 +8,7 @@ function screenrecord() {
         fi
         echo "Stopping gif recorder..."
         kill -INT $(cat /tmp/screenrecord.pid)
+        rm /tmp/screenrecord.pid
         exit 0
     elif [ "$1" == "clean" ]; then
         rm /tmp/screenrecord.pid
