@@ -22,10 +22,10 @@ function screenrecord() {
         TMP_AVI=$(mktemp /tmp/outXXXXXXXXXX.avi)
         TMP_PALETTE=$(mktemp /tmp/outXXXXXXXXXX.png)
     if [ "$2" == "" ]; then
-        TMP_GIF=$(mktemp /tmp/outXXXXXXXXXX.gif)
+        TMP_GIF="$(mktemp /tmp/outXXXXXXXXXX.gif)"
         export LAST_GIF=$TMP_GIF
     else
-        TMP_GIF=/tmp/${2}.gif
+        TMP_GIF="/tmp/${2}.gif"
         export LAST_GIF=$TMP_GIF
     fi
     function cleanup() {
