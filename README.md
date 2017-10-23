@@ -19,16 +19,16 @@ Then run the setup script:
 
 ## Usage
 To start recording use:
-```
+```bash
 screenrecord -gr
 ```
 You can also specify a filename:
-```
+```bash
 screenrecord -gr filename
 ```
 
 To stop the recording from anywhere run:
-```
+```bash
 screenrecord -gs
 ```
 Exiting the original command with Ctrl + c will also work.
