@@ -34,9 +34,11 @@ screenrecord -gs
 Exiting the original command with Ctrl + c will also work.
 
 ## Configuring
-You can change the default filename and save directory in `${HOME}/.config/screc/config`.  
+You can change the default filename and save directory in `${HOME}/.config/screc/config.cfg`.  
 By default screc will save files to `${HOME}/Videos` with the time and date of recording.  
-For example `SCREC_Monday-October-23_03:59:08.gif`
+For example `SCREC_Monday-October-23_03:59:08.gif`  
+
+Default config options can be found in `${HOME}/.config/screc/config.cfg.bak`.
 
 ## Todo
 - [x] Allow for setting a custom directory to save to.
