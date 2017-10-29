@@ -13,6 +13,15 @@ fi
 
 #/----------------------------/#
 
+# Install dependencies
+echo "Checking Dependencies..."
+(which ffmpeg &>/dev/null && echo -e "\e[32mFOUND\e[39m: ffmpeg") \
+    || { echo -e "\e[31mERROR\e[39m:ffmpeg not found, please install it via your package manager."; exit 1; }
+(which slop &>/dev/null && echo -e "\e[32mFOUND\e[39m: slop") \
+    || { echo -e "\e[31mERROR\e[39m: slop not found, please install it via your package manager."; exit 1; }
+echo
+
+# Install script 
 scriptdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 confdir="$HOME/.config/screc"
 
@@ -36,13 +45,6 @@ if [ ! -f /usr/local/bin/screc ]; then
     sudo ln -s $confdir/script.sh /usr/local/bin/screc
 fi
 
-# Install dependencies
-echo "Checking Dependencies..."
-(which ffmpeg &>/dev/null && echo -e "\e[32mFOUND\e[39m: ffmpeg") \
-    || { echo -e "\e[31mERROR\e[39m:ffmpeg not found, please install it via your package manager."; exit 1; }
-(which slop &>/dev/null && echo -e "\e[32mFOUND\e[39m: slop") \
-    || { echo -e "\e[31mERROR\e[39m: slop not found, please install it via your package manager."; exit 1; }
-echo
 
 
 # Tell the user its done!
