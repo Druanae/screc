@@ -20,7 +20,7 @@ filename="$filename_format"
 
 # ----------------------- #
 
-function screc() {
+function screcord() {
 
     if [ "$1" == "stop" ]; then
         if [ ! -f /tmp/screc.pid ]; then
@@ -75,17 +75,17 @@ function screc() {
     echo "$PID" > /tmp/screc.pid &
     wait "$PID"
     ffmpeg -v warning -i "$TMP_AVI" -vf "fps=15,palettegen=stats_mode=full" -y $TMP_PALETTE
-    ffmpeg -v warning -i "$TMP_AVI" -i "$TMP_PALETTE" -lavfi "fps=15 [x]; [x][1:v] paletteuse=dither=sierra2_4a" -y $OUT_GIF
-    echo $OUT_GIF
+    ffmpeg -v warning -i "$TMP_AVI" -i "$TMP_PALETTE" -lavfi "fps=15 [x]; [x][1:v] paletteuse=dither=sierra2_4a" -y "$OUT_GIF"
+    echo "${OUT_GIF}"
 }
 
 if [ "${1}" = "-gr" ]; then
-    screc rec ${2}
+    screcord rec "${2}"
     exit 0
 fi
 
 if [ "${1}" = "-gs" ]; then
-    screc stop
+    screcord stop
     exit 0
 fi
 
