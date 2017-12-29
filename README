@@ -1,46 +1,40 @@
-# Screc - Quick & Easy Screen Recording with FFMPEG
+Screc - Quick & Easy Screen Recording with FFMPEG
+-------------------------------------------------
 A simple script that will record a selected aread of the screen or a selected window using FFMPEG and save it as a .gif file.
 
-## Dependencies
+==> Dependencies
 
-* ffmpeg
-* slop
+- ffmpeg
+- slop
 
-## Installation
+==> Installation
 Clone this repository:
-```bash
-git clone https://github.com/druanae/screc.git
-cd screc
-```
-Then run the setup script:
-```bash
-./setup.sh
-```
+    git clone https://github.com/druanae/screc.git
+    cd screc
 
-## Usage
+Then run the setup script:
+    ./setup.sh
+
+==> Usage
 To start recording use:
-```bash
-screenrecord -gr
-```
+    screenrecord -gr
+
 You can also specify a filename:
-```bash
-screenrecord -gr filename
-```
+    screenrecord -gr filename
 
 To stop the recording from anywhere run:
-```bash
-screenrecord -gs
-```
+    screenrecord -gs
+
 Exiting the original command with Ctrl + c will also work.
 
-## Configuring
+==> Configuring
 You can change the default filename and save directory in `${HOME}/.config/screc/config.cfg`.  
 By default screc will save files to `${HOME}/Videos` with the time and date of recording.  
 For example `SCREC_Monday-October-23_03:59:08.gif`  
 
 Default config options can be found in `${HOME}/.config/screc/config.cfg.bak`.
 
-## Todo
+==> Todo
 - [x] Allow for setting a custom directory to save to.
 - [ ] Allow for webm recording for higher FPS and Sound.
 - [x] Allow for custom name formatting.
